@@ -30,25 +30,29 @@ public class MainScreen extends Activity {
         playerTurn = 1;
     }
 
+    //places an X or an O for players turn
     public void pickSquare(View view){
         TextView currentSquare = (TextView) findViewById(view.getId());
-        if(playerTurn == 1){
-            currentSquare.setText("X");
-            currentSquare.setTextColor(Color.RED);
-            playerTurn = 2;
-        }
-        else{
-            currentSquare.setText("O");
-            currentSquare.setTextColor(Color.DKGRAY);
-            playerTurn = 1;
+        if(currentSquare.getText().equals(" ")) {
+            if (playerTurn == 1) {
+                currentSquare.setText("X");
+                currentSquare.setTextColor(Color.RED);
+                playerTurn = 2;
+            } else {
+                currentSquare.setText("O");
+                currentSquare.setTextColor(Color.DKGRAY);
+                playerTurn = 1;
+            }
         }
 
     }
 
+    //Resets the board for a new game
     public void newGame(View view){
         for(int i = 0; i < board.length; i++){
             board[i].setText(" ");
         }
+        playerTurn = 1;
     }
 
 
